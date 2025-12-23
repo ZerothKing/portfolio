@@ -1,5 +1,14 @@
 ---
 const { title } = Astro.props;
+import Skills from '../components/Skills.astro'
+import Hero from '../components/Hero.astro'
+import TopSkills from '../components/TopSkills.astro'
+
+const fm = Astro.props?.frontmatter || {};
+const showSkills = fm.showSkills === true;
+const showHero = fm.showHero === true;
+const showTopSkills = fm.showTopSkills === true;
+const showProjects = fm.showProjects === true;
 ---
 <!doctype html>
 <html lang="en">
@@ -7,10 +16,92 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/global.css">
   </head>
   <body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="/" class="logo">Sanjkeet.dev</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="/information/resume">Resume</a>
+            </div>
+        </div>
+    </nav>
     <main>
       <slot />
     </main>
+    <footer class="footer section-padding">
+        <div class="container text-center">
+            <p>&copy; {new Date().getFullYear()} Sanjkeet Jena. Built with Astro.</p>
+             <div class="social-links" style="margin-top: 1rem;">
+                <a href="https://linkedin.com/in/sanjkeetjena" target="_blank">LinkedIn</a>
+                <a href="https://github.com/ZerothKing" target="_blank">GitHub</a>
+                <a href="mailto:sanjkeetjena@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
   </body>
 </html>
+
+<style>
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(13, 17, 23, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 0;
+    }
+    .navbar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .logo {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--heading-color);
+    }
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+    @media (max-width: 480px) {
+        .navbar-content {
+            justify-content: center;
+        }
+        .nav-links {
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+    }
+    .nav-links a {
+        color: var(--secondary-color);
+        font-weight: 500;
+        text-decoration: none;
+    }
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
+    .footer {
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+        color: var(--secondary-color);
+    }
+    .social-links a {
+        margin: 0 10px;
+        color: var(--secondary-color);
+    }
+    .social-links a:hover {
+        color: var(--primary-color);
+    }
+</style>

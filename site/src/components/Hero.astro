@@ -1,0 +1,111 @@
+---
+---
+
+<header class="hero-section">
+  <div class="container hero-content">
+    <div class="text-content">
+        <h1 class="animate-fade-in">Hi, I'm <span class="gradient-text">Sanjkeet Jena</span></h1>
+        <h2 class="subtitle animate-fade-in" style="animation-delay: 0.2s">Senior Software Development Engineer</h2>
+        <p class="description animate-fade-in" style="animation-delay: 0.4s">
+            Building scalable distributed systems and solving complex problems at Arcesium. 
+            Passionate about backend engineering, cloud technologies, and driving technical excellence.
+        </p>
+        <div class="cta-buttons animate-fade-in" style="animation-delay: 0.6s">
+            <a href="#projects" class="btn btn-primary">View Work</a>
+            <a href="/Sanjkeet_resume_ep5.5.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+        </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero-section {
+    min-height: 80vh; /* Almost full viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at top right, rgba(88, 166, 255, 0.1), transparent 40%);
+  }
+
+  .hero-content {
+      max-width: 800px;
+      text-align: left;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  
+  .gradient-text {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+  }
+
+  .subtitle {
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      color: var(--secondary-color);
+      font-weight: 500;
+      margin-bottom: 2rem;
+  }
+  
+  .description {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      margin-bottom: 3rem;
+      max-width: 600px;
+  }
+  
+  .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+  }
+  
+  .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      flex: 1 1 auto;
+      text-align: center;
+      min-width: 140px;
+  }
+  
+  .btn-primary {
+      background: var(--primary-color);
+      color: #fff;
+      border: 2px solid var(--primary-color);
+  }
+  
+  .btn-primary:hover {
+      background: #4a9eff;
+      box-shadow: 0 4px 12px rgba(88, 166, 255, 0.4);
+      opacity: 1;
+      text-decoration: none;
+  }
+  
+  .btn-secondary {
+      background: transparent;
+      color: var(--text-color);
+      border: 2px solid var(--border-color);
+  }
+  
+  .btn-secondary:hover {
+      border-color: var(--text-color);
+      opacity: 1;
+      text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+      h1 { font-size: 3rem; }
+      .subtitle { font-size: 1.5rem; }
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+  {
+    title: "Lung Disease Detection",
+    description: "Deep learning model for detecting lung diseases in chest X-rays with 87% accuracy using TensorFlow and Flask.",
+    tags: ["Python", "TensorFlow", "Flask", "Pandas"],
+    link: "#"
+  },
+  {
+    title: "NBA Prediction ML",
+    description: "Machine learning pipeline to predict NBA outcomes using scraped data, feature engineering, and scikit-learn.",
+    tags: ["Python", "Scikit-learn", "Selenium", "Matplotlib"],
+    link: "#"
+  },
+  {
+    title: "Connect-4 AI",
+    description: "Single and multiplayer Connect-4 game with Minimax algorithm and Alpha-beta pruning.",
+    tags: ["Python", "PyGame", "AI"],
+    link: "#"
+  },
+  {
+    title: "Blockchain Voting App",
+    description: "Decentralized voting application using Ethereum smart contracts and liquid democracy concepts.",
+    tags: ["Solidity", "Blockchain", "Ethereum"],
+    link: "#"
+  }
+];
+---
+
+<section id="projects" class="container section-padding">
+  <h2 class="title">Featured Projects</h2>
+  <div class="grid grid-cols-2">
+    {projects.map(project => (
+      <ProjectCard {...project} />
+    ))}
+  </div>
+</section>
+
+<style>
+  /* Responsive grid adjustment */
+  @media (max-width: 768px) {
+    .grid-cols-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+import skills from '../data/skills.js';
+const highlights = ['Java', 'Python', 'Docker', 'Kubernetes', 'Git', 'Spring'];
+const top = [];
+for (const cat of skills) {
+  for (const s of cat.skills) {
+    if (highlights.includes(s.name)) top.push(s);
+  }
+}
+---
+
+<section class="top-skills" aria-label="Top skills">
+  <div class="container">
+    <h3 class="title">Top skills</h3>
+    <div class="badges">
+      {top.map(s => (
+        <span class="badge" title={`${s.name} — ${s.level}`}>{s.icon} {s.name}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.top-skills{padding:1.25rem 0}
+.container{max-width:900px;margin:0 auto;padding:0 1rem}
+.title{margin:0 0 .5rem;font-size:1rem}
+.badges{display:flex;gap:.6rem;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:999px;background:#f8fafc;border:1px solid #eef2f7}
+</style>

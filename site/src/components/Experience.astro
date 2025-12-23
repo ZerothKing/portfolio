@@ -1,0 +1,134 @@
+---
+const experience = [
+  {
+    role: "Senior Software Development Engineer",
+    company: "Arcesium",
+    location: "Hyderabad, Telangana",
+    period: "July 2023 – Present",
+    details: [
+      "BTM (Better Timestamp Management): Implemented firm-wide project standardizing timestamp serialization/deserialization across all APIs and databases.",
+      "Configuration Management System: Architected synchronous configuration update system for all applications with periodic caching and monitoring.",
+      "BigDecimal SDK Enhancement: Authored RFC and implemented BigDecimal support across Java, Python, and C# SDKs.",
+      "Rate Limiter Library: Contributed to rate limiter design decoupling Hazelcast dependencies.",
+      "Security & Vulnerability Management: Led InfoSec initiatives fixing vulnerable JARs and defects."
+    ]
+  },
+  {
+    role: "Software Development Engineering Intern",
+    company: "Arcesium",
+    location: "Hyderabad, Telangana",
+    period: "May 2022 – July 2022",
+    details: [
+      "Built containerized applications using Docker and deployed on Kubernetes.",
+      "Implemented CI/CD pipelines using GitLab, reducing deployment time significantly.",
+      "Configured Nginx web servers and integrated monitoring using Datadog."
+    ]
+  }
+];
+---
+
+<section id="experience" class="container section-padding">
+  <h2 class="title">Experience</h2>
+  <div class="timeline">
+    {experience.map((item, index) => (
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+            <div class="timeline-header">
+                <h3>{item.role}</h3>
+                <span class="company">{item.company}</span>
+                <span class="period">{item.period}</span>
+            </div>
+            <ul class="details-list">
+                {item.details.map(detail => (
+                    <li>{detail}</li>
+                ))}
+            </ul>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--border-color);
+  }
+
+  .timeline-item {
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -2.1rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+  }
+
+  .timeline-content {
+    background: var(--card-bg);
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s;
+  }
+
+  @media (max-width: 480px) {
+      .timeline {
+          padding-left: 1rem;
+      }
+      .timeline-marker {
+          left: -1.6rem;
+      }
+      .timeline-content {
+          padding: 1rem;
+      }
+      .timeline-header h3 {
+          font-size: 1.1rem;
+      }
+  }
+  
+  .timeline-content:hover {
+      transform: translateX(5px);
+  }
+
+  .timeline-header {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+  }
+
+  .timeline-header h3 {
+    margin-bottom: 0.25rem;
+    color: var(--heading-color);
+  }
+
+  .company {
+      font-weight: 600;
+      color: var(--primary-color);
+      display: block;
+  }
+  
+  .period {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+  }
+
+  .details-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: var(--text-color);
+  }
+  
+  .details-list li {
+      margin-bottom: 0.5rem;
+  }
+</style>

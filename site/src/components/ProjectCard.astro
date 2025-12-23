@@ -1,0 +1,64 @@
+---
+const { title, description, tags, link } = Astro.props;
+---
+
+<a href={link || "#"} class="project-card">
+  <div class="card-content">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
+    <div class="card-tags">
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+</a>
+
+<style>
+  .project-card {
+    display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    opacity: 1;
+  }
+
+  .card-title {
+    color: var(--heading-color);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-desc {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    background: rgba(88, 166, 255, 0.1);
+    color: var(--primary-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+  }
+</style>

@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+---
+
+<BaseLayout title="Sanjkeet Jena | Senior SDE">
+  <Hero />
+  
+  <section id="about" class="container section-padding">
+    <div class="about-content">
+      <h2 class="title">About Me</h2>
+      <p class="lead">
+        I am a Senior Software Development Engineer at Arcesium with a passion for building scalable systems and solving complex problems. 
+        With expertise in distributed systems, backend development, and full-stack engineering, I drive technical excellence and innovation.
+      </p>
+    </div>
+  </section>
+
+  <Experience />
+  
+  <Projects />
+  
+  <section id="skills" class="container section-padding">
+    <h2 class="title">Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Languages</h3>
+            <div class="tags">
+                <span>Java</span><span>C++</span><span>Python</span><span>C#</span><span>Kotlin</span><span>JavaScript</span><span>Bash</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Frameworks & Libraries</h3>
+            <div class="tags">
+                <span>Spring</span><span>React</span><span>.NET</span><span>TensorFlow</span><span>scikit-learn</span><span>pandas</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Cloud & DevOps</h3>
+            <div class="tags">
+                <span>Docker</span><span>Kubernetes</span><span>AWS S3</span><span>GitLab CI/CD</span><span>ELK</span><span>Datadog</span>
+            </div>
+        </div>
+         <div class="skill-category">
+            <h3>Databases & Tools</h3>
+            <div class="tags">
+                <span>MySQL</span><span>PostgreSQL</span><span>Git</span><span>Linux</span><span>Hazelcast</span>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="achievements" class="container section-padding">
+      <h2 class="title" style="margin-bottom: 2rem;">Achievements & Recognition</h2>
+      <ul class="achievements-list">
+          <li>
+              <strong>Best Paper Award - ICDSAI Conference 2022</strong>
+              <p>Co-authored research on "Human-in-the-loop control and security for intelligent Cyber-Physical Systems".</p>
+          </li>
+          <li>
+              <strong>Cybersecurity Excellence</strong>
+              <p>Ranked 8th among 400+ participants in firm-wide 24-hour CTF competition.</p>
+          </li>
+          <li>
+              <strong>Competitive Programming</strong>
+              <p>ICPC Regionals qualifier, IEEEXtreme 15.0 (Global Rank 77), 4-star CodeChef.</p>
+          </li>
+          <li>
+              <strong>Scholastic Awards</strong>
+              <p>KVPY Scholar (AIR 232), NTSE Scholar.</p>
+          </li>
+      </ul>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    max-width: 800px;
+    line-height: 1.8;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .skill-category {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+  }
+
+  .skill-category:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+  }
+  
+  .skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .tags span {
+    background: rgba(48, 54, 61, 0.4);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    transition: all 0.2s;
+  }
+  
+  .tags span:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(88, 166, 255, 0.1);
+  }
+
+  .achievements-list {
+      list-style: none;
+      display: grid;
+      gap: 1.5rem;
+  }
+  
+  .achievements-list li {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      transition: transform 0.2s;
+  }
+
+  .achievements-list li:hover {
+      transform: scale(1.02);
+  }
+  
+  .achievements-list strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--heading-color);
+      margin-bottom: 0.5rem;
+  }
+  
+  .achievements-list p {
+      color: var(--secondary-color);
+      margin: 0;
+  }
+
+  @media (max-width: 640px) {
+      .skills-grid {
+          grid-template-columns: 1fr;
+      }
+      .skill-category {
+          padding: 1.5rem;
+      }
+  }
+</style>
