@@ -30,19 +30,60 @@ const projects = [
 ---
 
 <section id="projects" class="container section-padding">
-  <h2 class="title">Featured Projects</h2>
-  <div class="grid grid-cols-2">
-    {projects.map(project => (
-      <ProjectCard {...project} />
+  <div class="projects-header">
+    <h2 class="title">Featured Projects</h2>
+    <p class="projects-subtitle">A showcase of my technical work and side projects</p>
+  </div>
+  <div class="projects-grid">
+    {projects.map((project, index) => (
+      <div class="project-item" style={`animation-delay: ${index * 0.1}s`}>
+        <ProjectCard {...project} />
+      </div>
     ))}
   </div>
 </section>
 
 <style>
-  /* Responsive grid adjustment */
-  @media (max-width: 768px) {
-    .grid-cols-2 {
+  .projects-header {
+    margin-bottom: var(--space-8);
+  }
+  
+  .projects-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--text-lg);
+    margin-top: calc(var(--space-4) * -1);
+    margin-bottom: 0;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+  
+  .project-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s var(--ease-out-expo) forwards;
+  }
+  
+  /* Make first project span full width for emphasis */
+  .project-item:first-child {
+    grid-column: span 2;
+  }
+  
+  @media (max-width: 900px) {
+    .projects-grid {
       grid-template-columns: 1fr;
+    }
+    
+    .project-item:first-child {
+      grid-column: span 1;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .projects-subtitle {
+      font-size: var(--text-base);
     }
   }
 </style>

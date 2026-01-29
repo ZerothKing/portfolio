@@ -2,110 +2,283 @@
 ---
 
 <header class="hero-section">
+  <!-- Animated orbs -->
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  
   <div class="container hero-content">
-    <div class="text-content">
-        <h1 class="animate-fade-in">Hi, I'm <span class="gradient-text">Sanjkeet Jena</span></h1>
-        <h2 class="subtitle animate-fade-in" style="animation-delay: 0.2s">Senior Software Development Engineer</h2>
-        <p class="description animate-fade-in" style="animation-delay: 0.4s">
-            Building scalable distributed systems and solving complex problems at Arcesium. 
-            Passionate about backend engineering, cloud technologies, and driving technical excellence.
-        </p>
-        <div class="cta-buttons animate-fade-in" style="animation-delay: 0.6s">
-            <a href="#projects" class="btn btn-primary">View Work</a>
-            <a href="/Sanjkeet_resume_ep5.5.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+    <div class="hero-text">
+      <div class="hero-badge animate-fade-in">
+        <span class="badge-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+      
+      <h1 class="hero-title animate-fade-in" style="animation-delay: 0.1s">
+        Hi, I'm <span class="name-highlight">Sanjkeet Jena</span>
+      </h1>
+      
+      <h2 class="hero-subtitle animate-fade-in" style="animation-delay: 0.2s">
+        Senior Software Development Engineer
+      </h2>
+      
+      <p class="hero-description animate-fade-in" style="animation-delay: 0.3s">
+        Building scalable distributed systems and solving complex problems at <span class="company-highlight">Arcesium</span>. 
+        Passionate about backend engineering, cloud technologies, and driving technical excellence.
+      </p>
+      
+      <div class="hero-cta animate-fade-in" style="animation-delay: 0.4s">
+        <a href="#projects" class="btn btn-primary">
+          <span>View My Work</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/Sanjkeet_resume_ep5.5.pdf" class="btn btn-secondary" target="_blank">
+          Download CV
+        </a>
+      </div>
+      
+      <div class="hero-stats animate-fade-in" style="animation-delay: 0.5s">
+        <div class="stat">
+          <span class="stat-value">2+</span>
+          <span class="stat-label">Years Experience</span>
         </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">10+</span>
+          <span class="stat-label">Major Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">NITK</span>
+          <span class="stat-label">CS Graduate</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <style>
   .hero-section {
-    min-height: 80vh; /* Almost full viewport */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at top right, rgba(88, 166, 255, 0.1), transparent 40%);
+    padding: var(--space-24) 0 var(--space-16);
   }
-
+  
+  /* Animated grid background */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent);
+  }
+  
+  /* Floating orbs */
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .hero-orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.3), transparent 70%);
+    top: 10%;
+    right: 15%;
+    animation-delay: 0s;
+  }
+  
+  .hero-orb-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
+    bottom: 20%;
+    left: 10%;
+    animation-delay: -4s;
+  }
+  
   .hero-content {
-      max-width: 800px;
-      text-align: left;
+    position: relative;
+    z-index: 1;
   }
-
-  h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    margin-bottom: 1rem;
+  
+  .hero-text {
+    max-width: 800px;
+  }
+  
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+    backdrop-filter: blur(8px);
+  }
+  
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    animation: pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  
+  /* Title */
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
     line-height: 1.1;
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.03em;
   }
   
-  .gradient-text {
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-  }
-
-  .subtitle {
-      font-size: clamp(1.25rem, 4vw, 2rem);
-      color: var(--secondary-color);
-      font-weight: 500;
-      margin-bottom: 2rem;
+  .name-highlight {
+    background: linear-gradient(135deg, var(--primary-300), var(--accent-400), var(--primary-400));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease infinite;
   }
   
-  .description {
-      font-size: 1.1rem;
-      color: var(--text-color);
-      margin-bottom: 3rem;
-      max-width: 600px;
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: var(--space-6);
+    letter-spacing: -0.01em;
   }
   
-  .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+  /* Description */
+  .hero-description {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
   }
   
-  .btn {
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-      flex: 1 1 auto;
-      text-align: center;
-      min-width: 140px;
+  .company-highlight {
+    color: var(--primary-color);
+    font-weight: 600;
   }
   
-  .btn-primary {
-      background: var(--primary-color);
-      color: #fff;
-      border: 2px solid var(--primary-color);
+  /* CTA Buttons */
+  .hero-cta {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-10);
   }
   
-  .btn-primary:hover {
-      background: #4a9eff;
-      box-shadow: 0 4px 12px rgba(88, 166, 255, 0.4);
-      opacity: 1;
-      text-decoration: none;
+  .hero-cta .btn {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
   }
   
-  .btn-secondary {
-      background: transparent;
-      color: var(--text-color);
-      border: 2px solid var(--border-color);
+  .hero-cta .btn svg {
+    transition: transform var(--duration-fast) ease;
   }
   
-  .btn-secondary:hover {
-      border-color: var(--text-color);
-      opacity: 1;
-      text-decoration: none;
+  .hero-cta .btn:hover svg {
+    transform: translateX(4px);
   }
-
+  
+  /* Stats */
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .stat-label {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border-color);
+  }
+  
+  /* Responsive */
   @media (max-width: 768px) {
-      h1 { font-size: 3rem; }
-      .subtitle { font-size: 1.5rem; }
+    .hero-section {
+      padding-top: var(--space-20);
+    }
+    
+    .hero-orb-1 {
+      width: 250px;
+      height: 250px;
+      right: 0;
+    }
+    
+    .hero-orb-2 {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .hero-cta {
+      flex-direction: column;
+    }
+    
+    .hero-cta .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .hero-stats {
+      gap: var(--space-4);
+    }
+    
+    .stat-divider {
+      height: 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-badge {
+      font-size: var(--text-xs);
+    }
+    
+    .stat-value {
+      font-size: var(--text-xl);
+    }
   }
 </style>
